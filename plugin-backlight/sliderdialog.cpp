@@ -30,11 +30,18 @@
 #include <QDebug>
 #include "sliderdialog.h"
 
+// Number of backlight steps
+#define N_BACKLIGHT_STEPS 20
+// The first step is related to low backlight intensity.
+// This first step is divided in N_BACKLIGHT_LOW_STEPS steps.
+// As the eye has got a logarithm response, the first step is specially noticed,
+// although are intended to vary the same degree of intensity.
+#define N_BACKLIGHT_LOW_STEPS 20
 
-SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
+SliderDialog::SliderDialog(QWidget *parent, LXQt::Backlight *backlight) : QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
 {
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint);
-    m_backlight = new LXQt::Backlight(this);
+    m_backlight = backlight;
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setSpacing(0);
@@ -53,29 +60,25 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
     m_downButton->setAutoRepeat(true);
     layout->addWidget(m_downButton, 0, Qt::AlignHCenter);
 
-
-    if(m_backlight->isBacklightAvailable() || m_backlight->isBacklightOff()) {
-        // Set the minimum to 5% of the maximum to prevent a black screen
-        int minBacklight = qMax(qRound((qreal)(m_backlight->getMaxBacklight())*0.05), 1);
+    if(m_backlight->isBacklightAvailable()) {
+        int minBacklight = 0;
         int maxBacklight = m_backlight->getMaxBacklight();
         int interval = maxBacklight - minBacklight;
-        if(interval <= 100) {
+        if(interval <= N_BACKLIGHT_STEPS) {
             m_slider->setMaximum(maxBacklight);
             m_slider->setMinimum(minBacklight);
-            m_slider->setValue(m_backlight->getBacklight());
         } else {
-            m_slider->setMaximum(100);
-            // Set the minimum to 5% of the maximum to prevent a black screen
-            m_slider->setMinimum(5);
-            m_slider->setValue( (m_backlight->getBacklight() * 100) / maxBacklight);
+            m_slider->setMaximum(N_BACKLIGHT_STEPS + N_BACKLIGHT_LOW_STEPS);
+            m_slider->setMinimum(0);
         }
+        updateBacklight();
     } else {
         m_slider->setValue(0);
         m_slider->setEnabled(false);
         m_upButton->setEnabled(false);
         m_downButton->setEnabled(false);
     }
-    
+
     connect(m_slider,     &QSlider::valueChanged, this, &SliderDialog::sliderValueChanged);
     connect(m_upButton,   &QToolButton::clicked,  this, &SliderDialog::upButtonClicked);
     connect(m_downButton, &QToolButton::clicked,  this, &SliderDialog::downButtonClicked);
@@ -84,32 +87,27 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
 
 void SliderDialog::sliderValueChanged(int value)
 {
-    // Set the minimum to 5% of the maximum to prevent a black screen
-    int minBacklight = qMax(qRound((qreal)(m_backlight->getMaxBacklight())*0.05), 1);
-    int maxBacklight = m_backlight->getMaxBacklight();
-    int interval = maxBacklight - minBacklight;
-    if(interval > 100)
-        value = (value * maxBacklight) / 100;
-    m_backlight->setBacklight(value);
+    setBacklight(m_backlight, value);
 }
 
 
 void SliderDialog::updateBacklight()
 {
-    // Set the minimum to 5% of the maximum to prevent a black screen
-    int minBacklight = qMax(qRound((qreal)(m_backlight->getMaxBacklight())*0.05), 1);
+    int minBacklight = 0;
     int maxBacklight = m_backlight->getMaxBacklight();
     int interval = maxBacklight - minBacklight;
-    if(interval <= 100)
-        m_slider->setValue(m_backlight->getBacklight());
-    else
-        m_slider->setValue( (m_backlight->getBacklight() * 100) / maxBacklight);
+    int value = m_backlight->getBacklight();
+    if(interval > N_BACKLIGHT_STEPS && value > N_BACKLIGHT_LOW_STEPS)
+        value = (value * (N_BACKLIGHT_STEPS + N_BACKLIGHT_LOW_STEPS)) / maxBacklight;
+    m_slider->setValue(value);
 }
+
 
 void SliderDialog::downButtonClicked(bool)
 {
     m_slider->setValue(m_slider->value() - 1);
 }
+
 
 void SliderDialog::upButtonClicked(bool)
 {
@@ -121,9 +119,18 @@ bool SliderDialog::event(QEvent * event)
 {
     if(event->type() == QEvent::WindowDeactivate || event->type() == QEvent::Hide) {
         hide();
-        //printf("emit dialogClosed()\n");
         emit dialogClosed();
     }
     return QDialog::event(event);
+}
+
+void SliderDialog::setBacklight(LXQt::Backlight *backlight, int value)
+{
+    int minBacklight = 0;
+    int maxBacklight = backlight->getMaxBacklight();
+    int interval = maxBacklight - minBacklight;
+    if(interval > N_BACKLIGHT_STEPS && value > N_BACKLIGHT_LOW_STEPS)
+        value = (value * maxBacklight) / (N_BACKLIGHT_STEPS + N_BACKLIGHT_LOW_STEPS);
+    backlight->setBacklight(value);
 }
 

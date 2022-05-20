@@ -26,11 +26,22 @@
 
 #include "backlight.h"
 #include <QEvent>
+#include <lxqt-globalkeys.h>
+#include <LXQt/Notification>
+#include "../panel/pluginsettings.h"
+
+#define DEFAULT_UP_SHORTCUT "XF86MonBrightnessUp"
+#define DEFAULT_DOWN_SHORTCUT "XF86MonBrightnessDown"
 
 LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
         QObject(),
         ILXQtPanelPlugin(startupInfo)
 {
+    m_closeSliderTimer = nullptr;
+
+    m_backlight = new LXQt::Backlight(this);
+    m_notification = new LXQt::Notification(QLatin1String(""), this);
+
     m_backlightButton = new QToolButton();
     // use our own icon
     m_backlightButton->setIcon(QIcon::fromTheme(QStringLiteral("brightnesssettings")));
@@ -38,6 +49,25 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
     connect(m_backlightButton, &QToolButton::clicked, this, &LXQtBacklight::showSlider);
 
     m_backlightSlider = nullptr;
+
+    m_keyBacklightUp = GlobalKeyShortcut::Client::instance()->addAction(
+        QString(), QStringLiteral("/panel/%1/up").arg(settings()->group()),
+        tr("Increase backlight"), this);
+    if (m_keyBacklightUp) {
+        connect(m_keyBacklightUp, &GlobalKeyShortcut::Action::registrationFinished,
+            this, &LXQtBacklight::shortcutRegistered);
+        connect(m_keyBacklightUp, &GlobalKeyShortcut::Action::activated,
+            this, &LXQtBacklight::handleShortcutBacklightUp);
+    }
+    m_keyBacklightDown = GlobalKeyShortcut::Client::instance()->addAction(
+        QString(), QStringLiteral("/panel/%1/down").arg(settings()->group()),
+        tr("Decrease backlight"), this);
+    if (m_keyBacklightDown) {
+        connect(m_keyBacklightDown, &GlobalKeyShortcut::Action::registrationFinished,
+            this, &LXQtBacklight::shortcutRegistered);
+        connect(m_keyBacklightDown, &GlobalKeyShortcut::Action::activated,
+            this, &LXQtBacklight::handleShortcutBacklightDown);
+    }
 }
 
 
@@ -54,27 +84,101 @@ QWidget *LXQtBacklight::widget()
 
 void LXQtBacklight::deleteSlider()
 {
+    // Free slider and timer to save memory.
     if(m_backlightSlider) {
         m_backlightSlider->deleteLater();
+        m_backlightSlider = nullptr;
     }
-    m_backlightSlider = nullptr;
-    //printf("Deleted\n");
+
+    if(m_closeSliderTimer != nullptr) {
+        m_closeSliderTimer->stop();
+        m_closeSliderTimer->deleteLater();
+        m_closeSliderTimer = nullptr;
+    }
 }
 
 void LXQtBacklight::showSlider(bool)
 {
     if(! m_backlightSlider) {
-        m_backlightSlider = new SliderDialog(m_backlightButton);
+        m_backlightSlider = new SliderDialog(m_backlightButton, m_backlight);
         connect(m_backlightSlider, &SliderDialog::dialogClosed, this, &LXQtBacklight::deleteSlider);
-        //printf("New Slider\n");
     }
     QSize size = m_backlightSlider->sizeHint();
     QRect rect = calculatePopupWindowPos(size);
     m_backlightSlider->setGeometry(rect);
-    m_backlightSlider->updateBacklight();
+    //m_backlightSlider->updateBacklight();
     m_backlightSlider->show();
     m_backlightSlider->setFocus();
 }
 
+void LXQtBacklight::shortcutRegistered()
+{
+    GlobalKeyShortcut::Action * const shortcut = qobject_cast<GlobalKeyShortcut::Action*>(sender());
 
+    QString shortcutNotRegistered;
 
+    if (shortcut == m_keyBacklightUp) {
+        disconnect(m_keyBacklightUp, &GlobalKeyShortcut::Action::registrationFinished,
+            this, &LXQtBacklight::shortcutRegistered);
+
+        if (m_keyBacklightUp->shortcut().isEmpty())
+        {
+            m_keyBacklightUp->changeShortcut(QStringLiteral(DEFAULT_UP_SHORTCUT));
+            if (m_keyBacklightUp->shortcut().isEmpty())
+                shortcutNotRegistered = QStringLiteral(" '") + QStringLiteral(DEFAULT_UP_SHORTCUT) +
+                    QStringLiteral("'");
+        }
+    } else if (shortcut == m_keyBacklightDown) {
+        disconnect(m_keyBacklightDown, &GlobalKeyShortcut::Action::registrationFinished,
+            this, &LXQtBacklight::shortcutRegistered);
+
+        if (m_keyBacklightDown->shortcut().isEmpty())
+        {
+            m_keyBacklightDown->changeShortcut(QStringLiteral(DEFAULT_DOWN_SHORTCUT));
+            if (m_keyBacklightDown->shortcut().isEmpty())
+                shortcutNotRegistered += QStringLiteral(" '") + QStringLiteral(DEFAULT_DOWN_SHORTCUT) +
+                    QStringLiteral("'");
+        }
+    }
+
+    if(!shortcutNotRegistered.isEmpty())
+    {
+        m_notification->setSummary(
+            tr("Backlight Control: The following shortcuts can not be registered: %1")
+                .arg(shortcutNotRegistered));
+        m_notification->update();
+    }
+
+    m_notification->setTimeout(1000);
+    m_notification->setUrgencyHint(LXQt::Notification::UrgencyLow);
+}
+
+void LXQtBacklight::handleShortcutBacklightDown()
+{
+    if(m_backlightSlider == nullptr)
+        showSlider(true);
+    if(m_closeSliderTimer == nullptr) {
+        m_closeSliderTimer = new QTimer(this);
+        m_closeSliderTimer->setSingleShot(true);
+        connect(m_closeSliderTimer, &QTimer::timeout, this, &LXQtBacklight::deleteSlider);
+    }
+    m_closeSliderTimer->stop();
+    m_closeSliderTimer->start(3000);
+    if(m_backlightSlider != nullptr)
+        m_backlightSlider->downButtonClicked(true);
+}
+
+void LXQtBacklight::handleShortcutBacklightUp()
+{
+    if(m_backlightSlider == nullptr)
+        showSlider(true);
+    if(m_closeSliderTimer == nullptr) {
+        m_closeSliderTimer = new QTimer(this);
+        m_closeSliderTimer->setSingleShot(true);
+        connect(m_closeSliderTimer, &QTimer::timeout, this, &LXQtBacklight::deleteSlider);
+    }
+    m_closeSliderTimer->stop();
+    m_closeSliderTimer->start(3000);
+    if(m_backlightSlider != nullptr)
+        m_backlightSlider->upButtonClicked(true);
+}
