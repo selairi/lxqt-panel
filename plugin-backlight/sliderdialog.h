@@ -41,18 +41,17 @@ class SliderDialog: public QDialog
 public:
     SliderDialog(QWidget *parent, LXQt::Backlight *backlight);
     void updateBacklight();
-    static void setBacklight(LXQt::Backlight *backlight, int value);
-
-public slots:
-    void sliderValueChanged(int value);
-    void downButtonClicked(bool);
-    void upButtonClicked(bool);
 
 Q_SIGNALS:
     void dialogClosed();
 
 protected:
     bool event(QEvent *event) override;
+
+private Q_SLOTS:
+    void sliderValueChanged(int value);
+    void downButtonClicked(bool);
+    void upButtonClicked(bool);
 
 private:
     QSlider *m_slider;

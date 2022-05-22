@@ -29,7 +29,6 @@
 #define LXQTBACKLIGHT_H
 
 #include <QToolButton>
-#include <QTimer>
 #include "../panel/ilxqtpanelplugin.h"
 #include <LXQt/lxqtbacklight.h>
 #include "sliderdialog.h"
@@ -63,13 +62,15 @@ protected slots:
     void shortcutRegistered();
 
 private:
+    int getBacklightStep();
+    void setBacklightStep(int value);
+
     QToolButton *m_backlightButton;
     LXQt::Backlight *m_backlight;
     SliderDialog *m_backlightSlider;
     GlobalKeyShortcut::Action *m_keyBacklightUp;
     GlobalKeyShortcut::Action *m_keyBacklightDown;
     LXQt::Notification *m_notification;
-    QTimer *m_closeSliderTimer;
 };
 
 

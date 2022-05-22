@@ -37,8 +37,6 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
         QObject(),
         ILXQtPanelPlugin(startupInfo)
 {
-    m_closeSliderTimer = nullptr;
-
     m_backlight = new LXQt::Backlight(this);
     m_notification = new LXQt::Notification(QLatin1String(""), this);
 
@@ -88,12 +86,6 @@ void LXQtBacklight::deleteSlider()
     if(m_backlightSlider) {
         m_backlightSlider->deleteLater();
         m_backlightSlider = nullptr;
-    }
-
-    if(m_closeSliderTimer != nullptr) {
-        m_closeSliderTimer->stop();
-        m_closeSliderTimer->deleteLater();
-        m_closeSliderTimer = nullptr;
     }
 }
 
@@ -155,30 +147,56 @@ void LXQtBacklight::shortcutRegistered()
 
 void LXQtBacklight::handleShortcutBacklightDown()
 {
-    if(m_backlightSlider == nullptr)
-        showSlider(true);
-    if(m_closeSliderTimer == nullptr) {
-        m_closeSliderTimer = new QTimer(this);
-        m_closeSliderTimer->setSingleShot(true);
-        connect(m_closeSliderTimer, &QTimer::timeout, this, &LXQtBacklight::deleteSlider);
-    }
-    m_closeSliderTimer->stop();
-    m_closeSliderTimer->start(3000);
-    if(m_backlightSlider != nullptr)
-        m_backlightSlider->downButtonClicked(true);
+    int step = getBacklightStep();
+    setBacklightStep(step - 1);
+
+    int maxBacklight = m_backlight->getMaxBacklight();
+    int backlightPercent = (m_backlight->getBacklight() * 100) / maxBacklight;
+    m_notification->setSummary( tr("☼ %1 %").arg(backlightPercent) );
+    m_notification->update();
 }
 
 void LXQtBacklight::handleShortcutBacklightUp()
 {
-    if(m_backlightSlider == nullptr)
-        showSlider(true);
-    if(m_closeSliderTimer == nullptr) {
-        m_closeSliderTimer = new QTimer(this);
-        m_closeSliderTimer->setSingleShot(true);
-        connect(m_closeSliderTimer, &QTimer::timeout, this, &LXQtBacklight::deleteSlider);
-    }
-    m_closeSliderTimer->stop();
-    m_closeSliderTimer->start(3000);
-    if(m_backlightSlider != nullptr)
-        m_backlightSlider->upButtonClicked(true);
+    int step = getBacklightStep();
+    setBacklightStep(step + 1);
+
+    int maxBacklight = m_backlight->getMaxBacklight();
+    int backlightPercent = (m_backlight->getBacklight() * 100) / maxBacklight;
+    m_notification->setSummary( tr("☼ %1 %").arg(backlightPercent) );
+    m_notification->update();
 }
+
+
+
+// Number of backlight steps
+#define N_BACKLIGHT_STEPS 20
+// The first step is related to low backlight intensity.
+// This first step is divided in N_BACKLIGHT_LOW_STEPS steps.
+// As the eye has got a logarithm response, the first step is specially noticed,
+// although are intended to vary the same degree of intensity.
+#define N_BACKLIGHT_LOW_STEPS 20
+
+void LXQtBacklight::setBacklightStep(int value)
+{
+    int minBacklight = 0;
+    int maxBacklight = m_backlight->getMaxBacklight();
+    int interval = maxBacklight - minBacklight;
+    int backlightAtFirstStep = N_BACKLIGHT_LOW_STEPS;
+    if(interval > N_BACKLIGHT_STEPS && value > N_BACKLIGHT_LOW_STEPS)
+        value = (int)((float)((value - N_BACKLIGHT_LOW_STEPS) * (maxBacklight - backlightAtFirstStep)) / (float)(N_BACKLIGHT_STEPS) + 0.5) + backlightAtFirstStep;
+    m_backlight->setBacklight(value);
+}
+
+int LXQtBacklight::getBacklightStep()
+{
+    int minBacklight = 0;
+    int maxBacklight = m_backlight->getMaxBacklight();
+    int interval = maxBacklight - minBacklight;
+    int backlightAtFirstStep = N_BACKLIGHT_LOW_STEPS;
+    int value = m_backlight->getBacklight();
+    if(interval > N_BACKLIGHT_STEPS && value > backlightAtFirstStep)
+        value = (int)( (float)((value - N_BACKLIGHT_LOW_STEPS) * N_BACKLIGHT_STEPS) / (float)(maxBacklight - backlightAtFirstStep) + 0.5 ) + N_BACKLIGHT_LOW_STEPS;
+    return value;
+}
+
