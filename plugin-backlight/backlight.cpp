@@ -149,24 +149,13 @@ void LXQtBacklight::handleShortcutBacklightDown()
 {
     int step = getBacklightStep();
     setBacklightStep(step - 1);
-
-    int maxBacklight = m_backlight->getMaxBacklight();
-    int backlightPercent = (m_backlight->getBacklight() * 100) / maxBacklight;
-    m_notification->setSummary( tr("☼ %1 %").arg(backlightPercent) );
-    m_notification->update();
 }
 
 void LXQtBacklight::handleShortcutBacklightUp()
 {
     int step = getBacklightStep();
     setBacklightStep(step + 1);
-
-    int maxBacklight = m_backlight->getMaxBacklight();
-    int backlightPercent = (m_backlight->getBacklight() * 100) / maxBacklight;
-    m_notification->setSummary( tr("☼ %1 %").arg(backlightPercent) );
-    m_notification->update();
 }
-
 
 
 // Number of backlight steps
