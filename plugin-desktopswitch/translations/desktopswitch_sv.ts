@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="87"/>
+        <location filename="../desktopswitch.cpp" line="88"/>
         <source>Switch to desktop %1</source>
         <translation>Byt till skrivbord %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="148"/>
-        <location filename="../desktopswitch.cpp" line="159"/>
+        <location filename="../desktopswitch.cpp" line="149"/>
+        <location filename="../desktopswitch.cpp" line="160"/>
         <source>Desktop %1</source>
         <translation>Skrivbord %1</translation>
     </message>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>DesktopSwitch-inställningar</translation>
+        <translation>Skrivbordsbyte-inställningar</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -71,6 +71,19 @@
         <location filename="../desktopswitchconfiguration.cpp" line="71"/>
         <source>Desktop %1:</source>
         <translation>Skrivbord %1:</translation>
+    </message>
+</context>
+<context>
+    <name>DesktopSwitchUnsupported</name>
+    <message>
+        <location filename="../desktopswitch.h" line="111"/>
+        <source>n/a</source>
+        <translation>n/a</translation>
+    </message>
+    <message>
+        <location filename="../desktopswitch.h" line="113"/>
+        <source>DesktopSwitch is unsupported on current platform: %1</source>
+        <translation>Skrivbordsbyte stöds inte på nuvarande plattform: %1</translation>
     </message>
 </context>
 </TS>

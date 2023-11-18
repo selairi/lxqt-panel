@@ -32,8 +32,6 @@
 #include <QTimer>
 
 class VolumePopup;
-class ILXQtPanel;
-class LXQtVolume;
 class ILXQtPanelPlugin;
 
 class VolumeButton : public QToolButton
@@ -43,7 +41,6 @@ public:
     VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
     ~VolumeButton();
 
-    void setShowOnClicked(bool state);
     void setMuteOnMiddleClick(bool state);
     void setMixerCommand(const QString &command);
 
@@ -55,7 +52,6 @@ public slots:
 
 protected:
     void enterEvent(QEvent *event) override;
-    void leaveEvent(QEvent *event) override;
     void wheelEvent(QWheelEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
@@ -68,11 +64,10 @@ private slots:
 private:
     VolumePopup *m_volumePopup;
     ILXQtPanelPlugin *mPlugin;
-    ILXQtPanel *m_panel;
     QTimer m_popupHideTimer;
-    bool m_showOnClick;
     bool m_muteOnMiddleClick;
     QString m_mixerCommand;
+    QStringList m_mixerParams;
 };
 
 #endif // VOLUMEBUTTON_H

@@ -50,6 +50,7 @@
 #include <XdgDirs>
 
 #include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KX11Extras>
 #include <KWindowSystem/NETWM>
 
 // Turn on this to show the time required to load each plugin during startup
@@ -146,9 +147,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     //Qt documentation or at https://doc.qt.io/qt-5/qt.html
     //Qt::FramelessWindowHint = Produces a borderless window. The user cannot
     //move or resize a borderless window via the window system. On X11, ...
-    //Qt::WindowStaysOnTopHint = Informs the window system that the window
-    //should stay on top of all other windows. Note that on ...
-    Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint;
+    Qt::WindowFlags flags = Qt::FramelessWindowHint;
 
     // NOTE: by PCMan:
     // In Qt 4, the window is not activated if it has Qt::WA_X11NetWmWindowTypeDock.
@@ -243,18 +242,18 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
         QTimer::singleShot(PANEL_HIDE_FIRST_TIME, this, SLOT(hidePanel()));
     }
 
-    connect(KWindowSystem::self(), &KWindowSystem::windowAdded, this, [this] {
+    connect(KX11Extras::self(), &KX11Extras::windowAdded, this, [this] {
         if (mHidable && mHideOnOverlap && !mHidden)
         {
             mShowDelayTimer.stop();
             hidePanel();
         }
     });
-    connect(KWindowSystem::self(), &KWindowSystem::windowRemoved, this, [this] {
+    connect(KX11Extras::self(), &KX11Extras::windowRemoved, this, [this] {
         if (mHidable && mHideOnOverlap && mHidden && !isPanelOverlapped())
             mShowDelayTimer.start();
     });
-    connect(KWindowSystem::self(), &KWindowSystem::currentDesktopChanged, this, [this] {
+    connect(KX11Extras::self(), &KX11Extras::currentDesktopChanged, this, [this] {
        if (mHidable && mHideOnOverlap)
        {
             if (!mHidden)
@@ -266,8 +265,8 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
                 mShowDelayTimer.start();
        }
     });
-    connect(KWindowSystem::self(),
-            static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged),
+    connect(KX11Extras::self(),
+            static_cast<void (KX11Extras::*)(WId, NET::Properties, NET::Properties2)>(&KX11Extras::windowChanged),
             this, [this] (WId /* id */, NET::Properties prop, NET::Properties2) {
         if (mHidable && mHideOnOverlap
             // when a window is moved, resized, shaded, or minimized
@@ -420,7 +419,7 @@ LXQtPanel::~LXQtPanel()
 void LXQtPanel::show()
 {
     QWidget::show();
-    KWindowSystem::setOnDesktop(effectiveWinId(), NET::OnAllDesktops);
+    KX11Extras::setOnDesktop(effectiveWinId(), NET::OnAllDesktops);
 }
 
 
@@ -677,7 +676,7 @@ void LXQtPanel::updateWmStrut()
         switch (mPosition)
         {
         case LXQtPanel::PositionTop:
-            KWindowSystem::setExtendedStrut(wid,
+            KX11Extras::setExtendedStrut(wid,
                                             /* Left   */  0, 0, 0,
                                             /* Right  */  0, 0, 0,
                                             /* Top    */  rect.top() + getReserveDimension(), rect.left(), rect.right(),
@@ -686,7 +685,7 @@ void LXQtPanel::updateWmStrut()
             break;
 
         case LXQtPanel::PositionBottom:
-            KWindowSystem::setExtendedStrut(wid,
+            KX11Extras::setExtendedStrut(wid,
                                             /* Left   */  0, 0, 0,
                                             /* Right  */  0, 0, 0,
                                             /* Top    */  0, 0, 0,
@@ -695,7 +694,7 @@ void LXQtPanel::updateWmStrut()
             break;
 
         case LXQtPanel::PositionLeft:
-            KWindowSystem::setExtendedStrut(wid,
+            KX11Extras::setExtendedStrut(wid,
                                             /* Left   */  rect.left() + getReserveDimension(), rect.top(), rect.bottom(),
                                             /* Right  */  0, 0, 0,
                                             /* Top    */  0, 0, 0,
@@ -705,7 +704,7 @@ void LXQtPanel::updateWmStrut()
             break;
 
         case LXQtPanel::PositionRight:
-            KWindowSystem::setExtendedStrut(wid,
+            KX11Extras::setExtendedStrut(wid,
                                             /* Left   */  0, 0, 0,
                                             /* Right  */  wholeScreen.right() - rect.right() + getReserveDimension(), rect.top(), rect.bottom(),
                                             /* Top    */  0, 0, 0,
@@ -715,7 +714,7 @@ void LXQtPanel::updateWmStrut()
     }
     } else
     {
-        KWindowSystem::setExtendedStrut(wid,
+        KX11Extras::setExtendedStrut(wid,
                                         /* Left   */  0, 0, 0,
                                         /* Right  */  0, 0, 0,
                                         /* Top    */  0, 0, 0,
@@ -827,8 +826,8 @@ void LXQtPanel::showConfigDialog()
     mConfigDialog->activateWindow();
     WId wid = mConfigDialog->windowHandle()->winId();
 
-    KWindowSystem::activateWindow(wid);
-    KWindowSystem::setOnDesktop(wid, KWindowSystem::currentDesktop());
+    KX11Extras::activateWindow(wid);
+    KX11Extras::setOnDesktop(wid, KX11Extras::currentDesktop());
 }
 
 
@@ -847,8 +846,8 @@ void LXQtPanel::showAddPluginDialog()
     mConfigDialog->activateWindow();
     WId wid = mConfigDialog->windowHandle()->winId();
 
-    KWindowSystem::activateWindow(wid);
-    KWindowSystem::setOnDesktop(wid, KWindowSystem::currentDesktop());
+    KX11Extras::activateWindow(wid);
+    KX11Extras::setOnDesktop(wid, KX11Extras::currentDesktop());
 }
 
 
@@ -1131,7 +1130,7 @@ bool LXQtPanel::event(QEvent *event)
         KWindowSystem::setType(effectiveWinId(), NET::Dock);
 
         updateWmStrut(); // reserve screen space for the panel
-        KWindowSystem::setOnAllDesktops(effectiveWinId(), true);
+        KX11Extras::setOnAllDesktops(effectiveWinId(), true);
         break;
     }
     case QEvent::DragEnter:
@@ -1415,7 +1414,7 @@ bool LXQtPanel::isPanelOverlapped() const
     ignoreList |= NET::TopMenuMask;
     ignoreList |= NET::NotificationMask;
 
-    const auto wIds = KWindowSystem::stackingOrder();
+    const auto wIds = KX11Extras::stackingOrder();
     for (auto const wId : wIds)
     {
         KWindowInfo info(wId, NET::WMWindowType | NET::WMState | NET::WMFrameExtents | NET::WMDesktop);
@@ -1558,7 +1557,7 @@ void LXQtPanel::updateConfigDialog() const
     }
 }
 
-bool LXQtPanel::isPluginSingletonAndRunnig(QString const & pluginId) const
+bool LXQtPanel::isPluginSingletonAndRunning(QString const & pluginId) const
 {
     Plugin const * plugin = mPlugins->pluginByID(pluginId);
     if (nullptr == plugin)

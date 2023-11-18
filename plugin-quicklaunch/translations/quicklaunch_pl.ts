@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="224"/>
+        <location filename="../lxqtquicklaunch.cpp" line="227"/>
         <source>Drop Error</source>
         <translation>Błąd upuszczania</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="225"/>
+        <location filename="../lxqtquicklaunch.cpp" line="228"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Plik/adres &apos;%1&apos; nie może zostać umieszczony w Szybkim uruchamianiu teraz</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="331"/>
+        <location filename="../lxqtquicklaunch.cpp" line="334"/>
         <source>Drop application
 icons here</source>
         <translation>Upuść ikony aplikacji tutaj</translation>
@@ -41,6 +41,11 @@ icons here</source>
         <location filename="../quicklaunchbutton.cpp" line="63"/>
         <source>Remove from quicklaunch</source>
         <translation>Usuń z szybkiego uruchamiania</translation>
+    </message>
+    <message>
+        <location filename="../quicklaunchbutton.cpp" line="72"/>
+        <source>Refresh</source>
+        <translation>Odśwież</translation>
     </message>
 </context>
 </TS>

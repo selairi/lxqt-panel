@@ -49,6 +49,10 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_anchor(Qt::TopLeftCorner),
     m_device(nullptr)
 {
+    // Under some Wayland compositors, setting window flags in the c-tor of the base class
+    // may not be enough for a correct positioning of the popup.
+    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint);
+
     m_mixerButton = new QPushButton(this);
     m_mixerButton->setObjectName(QStringLiteral("MixerLink"));
     m_mixerButton->setMinimumWidth(1);
@@ -123,7 +127,7 @@ void VolumePopup::handleSliderValueChanged(int value)
         return;
     // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
     m_device->setVolume(value);
-    QTimer::singleShot(0, this, [this] { QToolTip::showText(QCursor::pos(), m_volumeSlider->toolTip()); });
+    QTimer::singleShot(0, this, [this] { QToolTip::showText(QCursor::pos(), m_volumeSlider->toolTip(), this); });
 }
 
 void VolumePopup::handleMuteToggleClicked()

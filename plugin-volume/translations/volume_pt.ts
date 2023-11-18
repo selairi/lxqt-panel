@@ -24,12 +24,12 @@
         <translation>Controlo de volume: os seguintes atalhos não foram registados: %1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="291"/>
+        <location filename="../lxqtvolume.cpp" line="290"/>
         <source>Volume: %1%%2</source>
         <translation>Volume: %1%%2</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="291"/>
+        <location filename="../lxqtvolume.cpp" line="290"/>
         <source>(muted)</source>
         <translation>(sem som)</translation>
     </message>
@@ -73,31 +73,26 @@
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
-        <source>Show on mouse click</source>
-        <translation>Mostrar ao clicar com o rato</translation>
-    </message>
-    <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
         <translation>Permitir volume acima de 100% (0dB)</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
         <translation>Notificar sempre sobre a alteração de volume</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
         <translation>Notificar sobre as alterações de volume com o teclado</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
         <translation>Nível de ajuste do volume</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="125"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
         <translation>Gestor de som externo</translation>
     </message>
@@ -105,12 +100,12 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="55"/>
+        <location filename="../volumepopup.cpp" line="59"/>
         <source>Launch mixer</source>
         <translation>Iniciar gestor de som</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="56"/>
+        <location filename="../volumepopup.cpp" line="60"/>
         <source>Mi&amp;xer</source>
         <translation>&amp;Gestor de som</translation>
     </message>

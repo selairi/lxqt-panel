@@ -14,12 +14,12 @@
         <translation>Ieškoti:</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="98"/>
+        <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
         <translation>Pridėti valdiklį</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="105"/>
+        <location filename="../config/addplugindialog.ui" line="109"/>
         <source>Close</source>
         <translation>Užverti</translation>
     </message>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Išdėstymas</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Dizainas</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigūruoti išdėstymą</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -67,7 +67,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Neigiama pikselių reikšmė nustato skydelio ilgį tiek pikselių mažiau nei yra prieinama vietos ekrane.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Pvz., Nustatytas &quot;Ilgis&quot; -100 pikselių, ekrano dydis yra 1000 pikselių, tuomet tikrasis skydelio ilgis bus 900 pikselių.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Neigiama pikselių reikšmė nustato skydelio ilgį tiek pikselių mažiau nei yra prieinama vietos ekrane.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Pvz., Yra nustatytas „Ilgis“ -100 pikselių, ekrano dydis yra 1000 pikselių, tuomet tikrasis skydelio ilgis bus 900 pikselių.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigūruoti dizainą</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
@@ -377,45 +377,45 @@ Spalvinti piktogramas valdiklių stiliaus
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1177"/>
-        <location filename="../lxqtpanel.cpp" line="1203"/>
+        <location filename="../lxqtpanel.cpp" line="1176"/>
+        <location filename="../lxqtpanel.cpp" line="1202"/>
         <source>Panel</source>
         <translation>Skydelis</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1206"/>
+        <location filename="../lxqtpanel.cpp" line="1205"/>
         <source>Configure Panel</source>
         <translation>Konfigūruoti skydelį</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1211"/>
+        <location filename="../lxqtpanel.cpp" line="1210"/>
         <source>Manage Widgets</source>
         <translation>Tvarkyti valdiklius</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1217"/>
+        <location filename="../lxqtpanel.cpp" line="1216"/>
         <source>Add New Panel</source>
         <translation>Pridėti naują skydelį</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1224"/>
+        <location filename="../lxqtpanel.cpp" line="1223"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Šalinti skydelį</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1229"/>
+        <location filename="../lxqtpanel.cpp" line="1228"/>
         <source>Lock This Panel</source>
         <translation>Užrakinti šį skydelį</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1385"/>
+        <location filename="../lxqtpanel.cpp" line="1384"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Šalinti skydelį</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1386"/>
+        <location filename="../lxqtpanel.cpp" line="1385"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Skydelio šalinimas negali būti atšauktas.
@@ -427,17 +427,17 @@ Ar norite pašalinti šį skydelį?</translation>
     <message>
         <location filename="../plugin.cpp" line="438"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>Konfigūruoti &quot;%1&quot;</translation>
+        <translation>Konfigūruoti „%1“</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="443"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>Perkelti &quot;%1&quot;</translation>
+        <translation>Perkelti „%1“</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="451"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>Šalinti &quot;%1&quot;</translation>
+        <translation>Šalinti „%1“</translation>
     </message>
 </context>
 <context>

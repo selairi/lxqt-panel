@@ -54,7 +54,7 @@
 #include "lxqttaskgroup.h"
 #include "lxqttaskbar.h"
 
-#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KX11Extras>
 // Necessary for closeApplication()
 #include <KWindowSystem/NETWM>
 #include <QX11Info>
@@ -107,13 +107,16 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
 
     mDNDTimer->setSingleShot(true);
     mDNDTimer->setInterval(700);
-    connect(mDNDTimer, &QTimer::timeout, this, &LXQtTaskButton::activateWithDraggable);
+    connect(mDNDTimer, &QTimer::timeout, this, &LXQtTaskButton::raiseApplication);
 
     mWheelTimer->setSingleShot(true);
     mWheelTimer->setInterval(250);
     connect(mWheelTimer, &QTimer::timeout, this, [this] {
         mWheelDelta = 0; // forget previous wheel deltas
     });
+
+    setUrgencyHint(NETWinInfo(QX11Info::connection(), mWindow, QX11Info::appRootWindow(), NET::Properties{}, NET::WM2Urgency).urgency()
+            || KWindowInfo{mWindow, NET::WMState}.hasState(NET::DemandsAttention));
 
     connect(LXQt::Settings::globalSettings(), &LXQt::GlobalSettings::iconThemeChanged, this, &LXQtTaskButton::updateIcon);
     connect(mParentTaskBar,                   &LXQtTaskBar::iconByClassChanged,        this, &LXQtTaskButton::updateIcon);
@@ -148,7 +151,7 @@ void LXQtTaskButton::updateIcon()
     if (ico.isNull())
     {
         int devicePixels = mIconSize * devicePixelRatioF();
-        ico = KWindowSystem::icon(mWindow, devicePixels, devicePixels);
+        ico = KX11Extras::icon(mWindow, devicePixels, devicePixels);
     }
     setIcon(ico.isNull() ? XdgIcon::defaultApplicationIcon() : ico);
 }
@@ -158,6 +161,9 @@ void LXQtTaskButton::updateIcon()
  ************************************************/
 void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
 {
+    // NOTE: This function announces where the task icon is,
+    // such that X11 WMs can perform their related animations correctly.
+
     xcb_connection_t* x11conn = QX11Info::connection();
 
     if (!x11conn) {
@@ -170,16 +176,21 @@ void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
                     NET::WMIconGeometry,
                     NET::Properties2());
     NETRect const curr = info.iconGeometry();
-    if (curr.pos.x != geom.x() || curr.pos.y != geom.y()
-            || curr.size.width != geom.width() || curr.size.height != geom.height())
-    {
-        NETRect nrect;
-        nrect.pos.x = geom.x();
-        nrect.pos.y = geom.y();
-        nrect.size.height = geom.height();
-        nrect.size.width = geom.width();
-        info.setIconGeometry(nrect);
-    }
+
+    // see kwindowsystem -> NETWinInfo::setIconGeometry for the scale factor
+    const qreal scaleFactor = qApp->devicePixelRatio();
+    int xPos = geom.x() * scaleFactor;
+    int yPos = geom.y() * scaleFactor;
+    int w = geom.width() * scaleFactor;
+    int h = geom.height() * scaleFactor;
+    if (xPos == curr.pos.x && yPos == curr.pos.y && w == curr.size.width && h == curr.size.height)
+        return;
+    NETRect nrect;
+    nrect.pos.x = geom.x();
+    nrect.pos.y = geom.y();
+    nrect.size.height = geom.height();
+    nrect.size.width = geom.width();
+    info.setIconGeometry(nrect);
 }
 
 /************************************************
@@ -257,7 +268,7 @@ void LXQtTaskButton::mousePressEvent(QMouseEvent* event)
 
     if (Qt::LeftButton == b)
         mDragStartPosition = event->pos();
-    else if (Qt::MidButton == b && parentTaskBar()->closeOnMiddleClick())
+    else if (Qt::MiddleButton == b && parentTaskBar()->closeOnMiddleClick())
         closeApplication();
 
     QToolButton::mousePressEvent(event);
@@ -404,18 +415,7 @@ bool LXQtTaskButton::isApplicationHidden() const
  ************************************************/
 bool LXQtTaskButton::isApplicationActive() const
 {
-    return KWindowSystem::activeWindow() == mWindow;
-}
-
-/************************************************
-
- ************************************************/
-void LXQtTaskButton::activateWithDraggable()
-{
-    // raise app in any time when there is a drag
-    // in progress to allow drop it into an app
-    raiseApplication();
-    KWindowSystem::forceActiveWindow(mWindow);
+    return KX11Extras::activeWindow() == mWindow;
 }
 
 /************************************************
@@ -426,15 +426,16 @@ void LXQtTaskButton::raiseApplication()
     KWindowInfo info(mWindow, NET::WMDesktop | NET::WMState | NET::XAWMState);
     if (parentTaskBar()->raiseOnCurrentDesktop() && info.isMinimized())
     {
-        KWindowSystem::setOnDesktop(mWindow, KWindowSystem::currentDesktop());
+        KX11Extras::setOnDesktop(mWindow, KX11Extras::currentDesktop());
     }
     else
     {
         int winDesktop = info.desktop();
-        if (KWindowSystem::currentDesktop() != winDesktop)
-            KWindowSystem::setCurrentDesktop(winDesktop);
+        if (KX11Extras::currentDesktop() != winDesktop)
+            KX11Extras::setCurrentDesktop(winDesktop);
     }
-    KWindowSystem::activateWindow(mWindow);
+    // bypass focus stealing prevention
+    KX11Extras::forceActiveWindow(mWindow);
 
     setUrgencyHint(false);
 }
@@ -444,7 +445,7 @@ void LXQtTaskButton::raiseApplication()
  ************************************************/
 void LXQtTaskButton::minimizeApplication()
 {
-    KWindowSystem::minimizeWindow(mWindow);
+    KX11Extras::minimizeWindow(mWindow);
 }
 
 /************************************************
@@ -556,7 +557,7 @@ void LXQtTaskButton::moveApplicationToDesktop()
     if (!ok)
         return;
 
-    KWindowSystem::setOnDesktop(mWindow, desk);
+    KX11Extras::setOnDesktop(mWindow, desk);
 }
 
 /************************************************
@@ -564,7 +565,7 @@ void LXQtTaskButton::moveApplicationToDesktop()
  ************************************************/
 void LXQtTaskButton::moveApplicationToPrevNextDesktop(bool next)
 {
-    int deskNum = KWindowSystem::numberOfDesktops();
+    int deskNum = KX11Extras::numberOfDesktops();
     if (deskNum <= 1)
         return;
     int targetDesk = KWindowInfo(mWindow, NET::WMDesktop).desktop() + (next ? 1 : -1);
@@ -574,7 +575,7 @@ void LXQtTaskButton::moveApplicationToPrevNextDesktop(bool next)
     else if (targetDesk < 1)
         targetDesk = deskNum;
 
-    KWindowSystem::setOnDesktop(mWindow, targetDesk);
+    KX11Extras::setOnDesktop(mWindow, targetDesk);
 }
 
 /************************************************
@@ -584,10 +585,10 @@ void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
 {
     KWindowInfo info(mWindow, NET::WMDesktop);
     if (!info.isOnCurrentDesktop())
-        KWindowSystem::setCurrentDesktop(info.desktop());
+        KX11Extras::setCurrentDesktop(info.desktop());
     if (isMinimized())
-        KWindowSystem::unminimizeWindow(mWindow);
-    KWindowSystem::forceActiveWindow(mWindow);
+        KX11Extras::unminimizeWindow(mWindow);
+    KX11Extras::forceActiveWindow(mWindow);
     const QRect& windowGeometry = KWindowInfo(mWindow, NET::WMFrameExtents).frameGeometry();
     QList<QScreen *> screens = QGuiApplication::screens();
     if (screens.size() > 1){
@@ -627,10 +628,10 @@ void LXQtTaskButton::moveApplication()
 {
     KWindowInfo info(mWindow, NET::WMDesktop);
     if (!info.isOnCurrentDesktop())
-        KWindowSystem::setCurrentDesktop(info.desktop());
+        KX11Extras::setCurrentDesktop(info.desktop());
     if (isMinimized())
-        KWindowSystem::unminimizeWindow(mWindow);
-    KWindowSystem::forceActiveWindow(mWindow);
+        KX11Extras::unminimizeWindow(mWindow);
+    KX11Extras::forceActiveWindow(mWindow);
     const QRect& g = KWindowInfo(mWindow, NET::WMGeometry).geometry();
     int X = g.center().x();
     int Y = g.center().y();
@@ -645,10 +646,10 @@ void LXQtTaskButton::resizeApplication()
 {
     KWindowInfo info(mWindow, NET::WMDesktop);
     if (!info.isOnCurrentDesktop())
-        KWindowSystem::setCurrentDesktop(info.desktop());
+        KX11Extras::setCurrentDesktop(info.desktop());
     if (isMinimized())
-        KWindowSystem::unminimizeWindow(mWindow);
-    KWindowSystem::forceActiveWindow(mWindow);
+        KX11Extras::unminimizeWindow(mWindow);
+    KX11Extras::forceActiveWindow(mWindow);
     const QRect& g = KWindowInfo(mWindow, NET::WMGeometry).geometry();
     int X = g.bottomRight().x();
     int Y = g.bottomRight().y();
@@ -700,7 +701,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     */
 
     /********** Desktop menu **********/
-    int deskNum = KWindowSystem::numberOfDesktops();
+    int deskNum = KX11Extras::numberOfDesktops();
     if (deskNum > 1)
     {
         int winDesk = KWindowInfo(mWindow, NET::WMDesktop).desktop();
@@ -714,7 +715,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
 
         for (int i = 1; i <= deskNum; ++i)
         {
-            auto deskName = KWindowSystem::desktopName(i).trimmed();
+            auto deskName = KX11Extras::desktopName(i).trimmed();
             if (deskName.isEmpty())
                 a = deskMenu->addAction(tr("Desktop &%1").arg(i));
             else
@@ -725,7 +726,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
             connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplicationToDesktop);
         }
 
-        int curDesk = KWindowSystem::currentDesktop();
+        int curDesk = KX11Extras::currentDesktop();
         a = menu->addAction(tr("&To Current Desktop"));
         a->setData(curDesk);
         a->setEnabled(curDesk != winDesk);
@@ -830,9 +831,6 @@ void LXQtTaskButton::setUrgencyHint(bool set)
 {
     if (mUrgencyHint == set)
         return;
-
-    if (!set)
-        KWindowSystem::demandAttention(mWindow, false);
 
     mUrgencyHint = set;
     setProperty("urgent", set);

@@ -83,7 +83,7 @@ LXQtWorldClock::~LXQtWorldClock()
 
 void LXQtWorldClock::timeout()
 {
-    if (QDateTime{}.time().msec() > 500)
+    if (QTime::currentTime().msec() > 500)
         restartTimer();
     updateTimeText();
 }
@@ -102,7 +102,7 @@ void LXQtWorldClock::updateTimeText()
     {
         isUpToDate = false;
         if (mUpdateInterval < 60000)
-            mShownTime = tzNow.addSecs(-tzNow.time().msec()); // s
+            mShownTime = tzNow.addMSecs(-tzNow.time().msec()); // s
         else if (mUpdateInterval < 3600000)
             mShownTime = tzNow.addSecs(-tzNow.time().second()); // m
         else
@@ -116,7 +116,7 @@ void LXQtWorldClock::updateTimeText()
             if (diff < 0 || diff >= 1)
             {
                 isUpToDate = false;
-                mShownTime = tzNow.addSecs(-tzNow.time().msec());
+                mShownTime = tzNow.addMSecs(-tzNow.time().msec());
             }
         }
         else if (mUpdateInterval < 3600000)
@@ -325,7 +325,7 @@ void LXQtWorldClock::settingsChanged()
         int update_interval;
         QString format = mFormat;
         format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
-        //don't support updating on milisecond basis -> big performance hit
+        //don't support updating on millisecond basis -> big performance hit
         if (format.contains(QLatin1String("s")))
             update_interval = 1000;
         else if (format.contains(QLatin1String("m")))
@@ -608,7 +608,7 @@ void ActiveLabel::mouseReleaseEvent(QMouseEvent* event)
         emit leftMouseButtonClicked();
         break;
 
-    case Qt::MidButton:
+    case Qt::MiddleButton:
         emit middleMouseButtonClicked();
         break;
 

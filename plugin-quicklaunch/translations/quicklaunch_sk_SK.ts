@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="224"/>
+        <location filename="../lxqtquicklaunch.cpp" line="227"/>
         <source>Drop Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="225"/>
+        <location filename="../lxqtquicklaunch.cpp" line="228"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Súbor/URL „%1“ momentálne nie je možné vložiť do rýchleho spustenia</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="331"/>
+        <location filename="../lxqtquicklaunch.cpp" line="334"/>
         <source>Drop application
 icons here</source>
         <translation>Sem pretiahnite
@@ -42,6 +42,11 @@ ikonu aplikácie</translation>
         <location filename="../quicklaunchbutton.cpp" line="63"/>
         <source>Remove from quicklaunch</source>
         <translation>Odstrániť z rýchleho spustenia</translation>
+    </message>
+    <message>
+        <location filename="../quicklaunchbutton.cpp" line="72"/>
+        <source>Refresh</source>
+        <translation>Obnoviť</translation>
     </message>
 </context>
 </TS>

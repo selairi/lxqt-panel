@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="224"/>
+        <location filename="../lxqtquicklaunch.cpp" line="227"/>
         <source>Drop Error</source>
         <translation>Viga kustutamisel</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="225"/>
+        <location filename="../lxqtquicklaunch.cpp" line="228"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Faili või urli „%1“ ei saa hetkel lisada kiirkäivitajasse</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="331"/>
+        <location filename="../lxqtquicklaunch.cpp" line="334"/>
         <source>Drop application
 icons here</source>
         <translation>Lohista siia
@@ -42,6 +42,11 @@ rakenduse ikoone</translation>
         <location filename="../quicklaunchbutton.cpp" line="63"/>
         <source>Remove from quicklaunch</source>
         <translation>Eemalda kiirkäivitajast</translation>
+    </message>
+    <message>
+        <location filename="../quicklaunchbutton.cpp" line="72"/>
+        <source>Refresh</source>
+        <translation>Värskenda</translation>
     </message>
 </context>
 </TS>

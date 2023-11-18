@@ -24,12 +24,12 @@
         <translation>Control de volume: Non foi posíbel rexistrar os seguintes atallos: %1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="291"/>
+        <location filename="../lxqtvolume.cpp" line="290"/>
         <source>Volume: %1%%2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="291"/>
+        <location filename="../lxqtvolume.cpp" line="290"/>
         <source>(muted)</source>
         <translation>(silenciado)</translation>
     </message>
@@ -73,31 +73,26 @@
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
-        <source>Show on mouse click</source>
-        <translation>Amosar ao premer co rato</translation>
-    </message>
-    <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
         <translation>Permitir que o volume exceda o 100% (0dB)</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
         <translation>Notificar sempre os cambios de volume</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
         <translation>Notificar sobre os cambios de volume co teclado</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
         <translation>Paso do axuste do volume</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="125"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
         <translation>Mesturador externo</translation>
     </message>
@@ -105,12 +100,12 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="55"/>
+        <location filename="../volumepopup.cpp" line="59"/>
         <source>Launch mixer</source>
         <translation>Iniciar o mesturador</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="56"/>
+        <location filename="../volumepopup.cpp" line="60"/>
         <source>Mi&amp;xer</source>
         <translation>&amp;Mesturador</translation>
     </message>

@@ -44,6 +44,7 @@ class QuickLaunchAction : public QAction
     Q_OBJECT
 
 public:
+    enum ActionType { ActionLegacy, ActionXdg, ActionFile };
     /*! Constructor for "legacy" launchers.
         \warning The XDG way is preferred this is only for older or non-standard apps
         \param name a name to display in tooltip
@@ -62,26 +63,33 @@ public:
     QuickLaunchAction(const QString & fileName, QWidget * parent);
 
     //! Returns true if the action is valid (contains all required properties).
-    bool isValid() { return m_valid; }
+    bool isValid() const { return m_valid; }
+
+    //! Returns the action type (legacy, Xdg, file).
+    int type() const { return m_type; }
 
     QHash<QString, QString> settingsMap() { return m_settingsMap; }
 
     /*! Returns list of additional actions to present for user (in menu).
-     * Currently there are only "Addtitional application actions" for the ActionXdg type
+     * Currently there are only "Addititional application actions" for the ActionXdg type
      * (the [Desktop Action %s] in .desktop files)
      */
-    QList<QAction *> addtitionalActions() const { return m_addtitionalActions; }
+    QList<QAction *> additionalActions() const { return m_additionalActions; }
+
+    /*! Updates the Xdg action by reloading its desktop file.
+     * Does nothing if the desktop file is not loadable or suitable.
+     */
+    void updateXdgAction();
 
 public slots:
     void execAction(QString additionalAction = QString{});
 
 private:
-    enum ActionType { ActionLegacy, ActionXdg, ActionFile };
     ActionType m_type;
     QString m_data;
     bool m_valid;
     QHash<QString, QString> m_settingsMap;
-    QList<QAction *> m_addtitionalActions;
+    QList<QAction *> m_additionalActions;
 };
 
 #endif

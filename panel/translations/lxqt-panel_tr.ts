@@ -14,12 +14,12 @@
         <translation>Ara:</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="98"/>
+        <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
         <translation>Gereç Ekle</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="105"/>
+        <location filename="../config/addplugindialog.ui" line="109"/>
         <source>Close</source>
         <translation>Kapat</translation>
     </message>
@@ -376,49 +376,49 @@ Gereç biçimine (palet) göre simgeleri renklendir</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1177"/>
-        <location filename="../lxqtpanel.cpp" line="1203"/>
+        <location filename="../lxqtpanel.cpp" line="1176"/>
+        <location filename="../lxqtpanel.cpp" line="1202"/>
         <source>Panel</source>
         <translation>Panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1206"/>
+        <location filename="../lxqtpanel.cpp" line="1205"/>
         <source>Configure Panel</source>
         <translation>Paneli Yapılandır</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1211"/>
+        <location filename="../lxqtpanel.cpp" line="1210"/>
         <source>Manage Widgets</source>
         <translation>Gereçleri Yönet</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1217"/>
+        <location filename="../lxqtpanel.cpp" line="1216"/>
         <source>Add New Panel</source>
         <translation>Yeni Panel Ekle</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1224"/>
+        <location filename="../lxqtpanel.cpp" line="1223"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Paneli Sil</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1229"/>
+        <location filename="../lxqtpanel.cpp" line="1228"/>
         <source>Lock This Panel</source>
         <translation>Bu Paneli Kilitle</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1385"/>
+        <location filename="../lxqtpanel.cpp" line="1384"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation>Paneli Sil</translation>
+        <translation>Paneli Kaldır</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1386"/>
+        <location filename="../lxqtpanel.cpp" line="1385"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>Bir paneli silme eylemi geri alınamaz.
-Paneli silmek istiyor musunuz?</translation>
+        <translation>Paneli kaldırma eylemi geri alınamaz.
+Paneli kaldırmak istiyor musunuz?</translation>
     </message>
 </context>
 <context>
@@ -436,7 +436,7 @@ Paneli silmek istiyor musunuz?</translation>
     <message>
         <location filename="../plugin.cpp" line="451"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>&quot;%1&quot;&apos;i sil</translation>
+        <translation>&quot;%1&quot; kaldır</translation>
     </message>
 </context>
 <context>

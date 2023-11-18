@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="87"/>
+        <location filename="../desktopswitch.cpp" line="88"/>
         <source>Switch to desktop %1</source>
         <translation>بدّل إلى سطح المكتب %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="148"/>
-        <location filename="../desktopswitch.cpp" line="159"/>
+        <location filename="../desktopswitch.cpp" line="149"/>
+        <location filename="../desktopswitch.cpp" line="160"/>
         <source>Desktop %1</source>
         <translation>سطح المكتب %1</translation>
     </message>
@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>إذا تم تحديده ، فسيكون عنصر واجهة المستخدم مجرد مؤشر</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>إظهار سطح المكتب النشط فقط</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
@@ -70,7 +70,20 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="71"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished">سطح المكتب %1:</translation>
+        <translation>سطح المكتب %1:</translation>
+    </message>
+</context>
+<context>
+    <name>DesktopSwitchUnsupported</name>
+    <message>
+        <location filename="../desktopswitch.h" line="111"/>
+        <source>n/a</source>
+        <translation>غير موجود</translation>
+    </message>
+    <message>
+        <location filename="../desktopswitch.h" line="113"/>
+        <source>DesktopSwitch is unsupported on current platform: %1</source>
+        <translation>تبديل سطح المكتب غير معتمد في النظام الأساسي الحالي:%1</translation>
     </message>
 </context>
 </TS>
