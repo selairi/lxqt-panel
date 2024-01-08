@@ -6,30 +6,30 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="64"/>
         <source>Increase sound volume</source>
-        <translation>ارفع مستوى الصوت</translation>
+        <translation>رفع مستوى الصوت</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="70"/>
         <source>Decrease sound volume</source>
-        <translation>اخفض مستوى الصوت</translation>
+        <translation>خفض مستوى الصوت</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation>اكتم/ألغِ كتم الصوت</translation>
+        <translation>كتم/إلغاء كتم الصوت</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>التحكّم بالصوت: تعذّر تسجيل الاختصارات الآتية: %L1</translation>
+        <translation>التحكّم بالصوت: تعذّر تسجيل الاختصارات التالية: %1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="291"/>
+        <location filename="../lxqtvolume.cpp" line="290"/>
         <source>Volume: %1%%2</source>
-        <translation>المستوى: %L1٪%L2</translation>
+        <translation>مستوى الصوت: %L1٪%L2</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="291"/>
+        <location filename="../lxqtvolume.cpp" line="290"/>
         <source>(muted)</source>
         <translation>(مكتوم)</translation>
     </message>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>الجهاز للتحكّم به</translation>
+        <translation>جهاز للتحكّم به</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
@@ -69,35 +69,30 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>اكتم بالنقر بالوسط</translation>
+        <translation>اكتم بالنقر على البكرة</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
-        <source>Show on mouse click</source>
-        <translation>اعرض بالنقر بالوسط</translation>
-    </message>
-    <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
         <translation>اسمح بارتفاع المستوى على ١٠٠٪ (٠ديسيبيل)</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
         <translation>أخطِرني دومًا بتغييرات مستوى الصوت</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
         <translation>أخطِرني بتغييرات مستوى الصوت باستعمال لوحة المفاتيح</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
-        <translation>عتبة ضبط المستوى</translation>
+        <translation>عتبة ضبط مستوى الصوت</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="125"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
         <translation>المازج الخارجي</translation>
     </message>
@@ -105,14 +100,14 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="55"/>
+        <location filename="../volumepopup.cpp" line="59"/>
         <source>Launch mixer</source>
         <translation>أطلِق المازج</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="56"/>
+        <location filename="../volumepopup.cpp" line="60"/>
         <source>Mi&amp;xer</source>
-        <translation>ال&amp;مازج</translation>
+        <translation>&amp;المازج</translation>
     </message>
 </context>
 </TS>

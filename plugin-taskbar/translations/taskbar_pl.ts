@@ -12,107 +12,107 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="673"/>
+        <location filename="../lxqttaskbutton.cpp" line="674"/>
         <source>Application</source>
         <translation>Aplikacja</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="707"/>
+        <location filename="../lxqttaskbutton.cpp" line="708"/>
         <source>To &amp;Desktop</source>
         <translation>Na &amp;pulpit</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="709"/>
+        <location filename="../lxqttaskbutton.cpp" line="710"/>
         <source>&amp;All Desktops</source>
         <translation>&amp;Wszystkie pulpity</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="719"/>
+        <location filename="../lxqttaskbutton.cpp" line="720"/>
         <source>Desktop &amp;%1</source>
         <translation>Pulpit &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="729"/>
+        <location filename="../lxqttaskbutton.cpp" line="730"/>
         <source>&amp;To Current Desktop</source>
         <translation>&amp;Na obecny pulpit</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="738"/>
+        <location filename="../lxqttaskbutton.cpp" line="739"/>
         <source>Move To N&amp;ext Monitor</source>
         <translation>Przenieś na następny monitor</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="741"/>
+        <location filename="../lxqttaskbutton.cpp" line="742"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation>Przesuń na &amp;poprzedni monitor</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="745"/>
+        <location filename="../lxqttaskbutton.cpp" line="746"/>
         <source>&amp;Move</source>
         <translation>&amp;Przenieś</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="748"/>
+        <location filename="../lxqttaskbutton.cpp" line="749"/>
         <source>Resi&amp;ze</source>
         <translation>&amp;Zmień rozmiar</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="755"/>
+        <location filename="../lxqttaskbutton.cpp" line="756"/>
         <source>Ma&amp;ximize</source>
         <translation>Zma&amp;ksymalizuj</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="762"/>
+        <location filename="../lxqttaskbutton.cpp" line="763"/>
         <source>Maximize vertically</source>
         <translation>Zmaksymalizuj pionowo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="767"/>
+        <location filename="../lxqttaskbutton.cpp" line="768"/>
         <source>Maximize horizontally</source>
         <translation>Zmaksymalizuj poziomo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="773"/>
+        <location filename="../lxqttaskbutton.cpp" line="774"/>
         <source>&amp;Restore</source>
         <translation>P&amp;rzywróć</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="777"/>
+        <location filename="../lxqttaskbutton.cpp" line="778"/>
         <source>Mi&amp;nimize</source>
         <translation>Zmi&amp;nimalizuj</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="783"/>
+        <location filename="../lxqttaskbutton.cpp" line="784"/>
         <source>Roll down</source>
         <translation>Zwiń</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="789"/>
+        <location filename="../lxqttaskbutton.cpp" line="790"/>
         <source>Roll up</source>
         <translation>Rozwiń</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="797"/>
+        <location filename="../lxqttaskbutton.cpp" line="798"/>
         <source>&amp;Layer</source>
         <translation>&amp;Warstwa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="799"/>
+        <location filename="../lxqttaskbutton.cpp" line="800"/>
         <source>Always on &amp;top</source>
         <translation>Zawsze na &amp;wierzchu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="805"/>
+        <location filename="../lxqttaskbutton.cpp" line="806"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normalnie</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="811"/>
+        <location filename="../lxqttaskbutton.cpp" line="812"/>
         <source>Always on &amp;bottom</source>
         <translation>Zawsze pod &amp;spodem</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="819"/>
+        <location filename="../lxqttaskbutton.cpp" line="820"/>
         <source>&amp;Close</source>
         <translation>&amp;Zamknij</translation>
     </message>
@@ -120,12 +120,12 @@
 <context>
     <name>LXQtTaskGroup</name>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="81"/>
+        <location filename="../lxqttaskgroup.cpp" line="82"/>
         <source>Group</source>
         <translation>Grupa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="83"/>
+        <location filename="../lxqttaskgroup.cpp" line="84"/>
         <source>Close group</source>
         <translation>Zamknij grupę</translation>
     </message>

@@ -12,107 +12,107 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="673"/>
+        <location filename="../lxqttaskbutton.cpp" line="674"/>
         <source>Application</source>
         <translation>Aplicación</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="707"/>
+        <location filename="../lxqttaskbutton.cpp" line="708"/>
         <source>To &amp;Desktop</source>
         <translation>Al &amp;escritorio</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="709"/>
+        <location filename="../lxqttaskbutton.cpp" line="710"/>
         <source>&amp;All Desktops</source>
         <translation>&amp;Todos los escritorios</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="719"/>
+        <location filename="../lxqttaskbutton.cpp" line="720"/>
         <source>Desktop &amp;%1</source>
         <translation>Escritorio &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="729"/>
+        <location filename="../lxqttaskbutton.cpp" line="730"/>
         <source>&amp;To Current Desktop</source>
         <translation>&amp;Al escritorio actual</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="738"/>
+        <location filename="../lxqttaskbutton.cpp" line="739"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Al monitor &amp;siguiente</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="741"/>
+        <location filename="../lxqttaskbutton.cpp" line="742"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation type="unfinished">Ir al monitor anterior</translation>
+        <translation>Al m&amp;onitor anterior</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="745"/>
+        <location filename="../lxqttaskbutton.cpp" line="746"/>
         <source>&amp;Move</source>
         <translation>&amp;Mover</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="748"/>
+        <location filename="../lxqttaskbutton.cpp" line="749"/>
         <source>Resi&amp;ze</source>
-        <translation>Cambiar el tamaño</translation>
+        <translation>Re&amp;dimensionar</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="755"/>
+        <location filename="../lxqttaskbutton.cpp" line="756"/>
         <source>Ma&amp;ximize</source>
         <translation>Ma&amp;ximizar</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="762"/>
+        <location filename="../lxqttaskbutton.cpp" line="763"/>
         <source>Maximize vertically</source>
         <translation>Maximizar verticalmente</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="767"/>
+        <location filename="../lxqttaskbutton.cpp" line="768"/>
         <source>Maximize horizontally</source>
         <translation>Maximizar horizontalmente</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="773"/>
+        <location filename="../lxqttaskbutton.cpp" line="774"/>
         <source>&amp;Restore</source>
         <translation>&amp;Restaurar</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="777"/>
+        <location filename="../lxqttaskbutton.cpp" line="778"/>
         <source>Mi&amp;nimize</source>
         <translation>Mi&amp;nimizar</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="783"/>
+        <location filename="../lxqttaskbutton.cpp" line="784"/>
         <source>Roll down</source>
         <translation>Desenrollar</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="789"/>
+        <location filename="../lxqttaskbutton.cpp" line="790"/>
         <source>Roll up</source>
         <translation>Enrollar</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="797"/>
+        <location filename="../lxqttaskbutton.cpp" line="798"/>
         <source>&amp;Layer</source>
-        <translation>&amp;Capa</translation>
+        <translation>Ca&amp;pa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="799"/>
+        <location filename="../lxqttaskbutton.cpp" line="800"/>
         <source>Always on &amp;top</source>
         <translation>Siempre &amp;encima</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="805"/>
+        <location filename="../lxqttaskbutton.cpp" line="806"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normal</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="811"/>
+        <location filename="../lxqttaskbutton.cpp" line="812"/>
         <source>Always on &amp;bottom</source>
         <translation>Siempre al &amp;fondo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="819"/>
+        <location filename="../lxqttaskbutton.cpp" line="820"/>
         <source>&amp;Close</source>
         <translation>&amp;Cerrar</translation>
     </message>
@@ -120,12 +120,12 @@
 <context>
     <name>LXQtTaskGroup</name>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="81"/>
+        <location filename="../lxqttaskgroup.cpp" line="82"/>
         <source>Group</source>
         <translation>Grupo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="83"/>
+        <location filename="../lxqttaskgroup.cpp" line="84"/>
         <source>Close group</source>
         <translation>Cerrar el grupo</translation>
     </message>

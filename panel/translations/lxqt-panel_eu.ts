@@ -14,12 +14,12 @@
         <translation>Bilatu:</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="98"/>
+        <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
         <translation>Gehitu Widget</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="105"/>
+        <location filename="../config/addplugindialog.ui" line="109"/>
         <source>Close</source>
         <translation>Itxi</translation>
     </message>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Kokapen</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilizazioa</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfiguratu kokapena</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -67,7 +67,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Pixelen balio negatiboak panelaren luzera pantailan dagoen espazioa baino pixel gutxiagorekin ezartzen du.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Adibidez.  &quot;Luzera&quot; ezarrita dago -100 px-en, pantailaren tamaina 1000 px-koa da eta, ondoren, panelaren benetako luzera 900 px-koa izango da.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
@@ -175,12 +175,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutuko panelerako marjina mehe ikusgaia</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutatu leiho bat gainjartzean soilik</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfiguratu estiloa</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
@@ -337,7 +337,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Widget estiloetarako konponbide partziala
+ezin dio gai bereizirik eman panelari.
+
+Baliteke ere desgaitu nahi izatea:
+
+LXQt Itxura konfigurazioa
+Ikonoak Gaia 
+Koloreztatu ikonoak widget estiloaren arabera (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="266"/>
@@ -362,52 +369,52 @@ Colorize icons based on widget style (palette)</source>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
         <translation>Irudiak (* .png * .gif * .jpg)</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1177"/>
-        <location filename="../lxqtpanel.cpp" line="1203"/>
+        <location filename="../lxqtpanel.cpp" line="1176"/>
+        <location filename="../lxqtpanel.cpp" line="1202"/>
         <source>Panel</source>
         <translation>Panela</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1206"/>
+        <location filename="../lxqtpanel.cpp" line="1205"/>
         <source>Configure Panel</source>
         <translation>Konfiguratu panela</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1211"/>
+        <location filename="../lxqtpanel.cpp" line="1210"/>
         <source>Manage Widgets</source>
         <translation>Widgetak Kudeatu</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1217"/>
+        <location filename="../lxqtpanel.cpp" line="1216"/>
         <source>Add New Panel</source>
         <translation>Gehitu Panel Berria</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1224"/>
+        <location filename="../lxqtpanel.cpp" line="1223"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Kendu Panela</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1229"/>
+        <location filename="../lxqtpanel.cpp" line="1228"/>
         <source>Lock This Panel</source>
         <translation>Panel Hau Blokeatu</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1385"/>
+        <location filename="../lxqtpanel.cpp" line="1384"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Kendu Panela</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1386"/>
+        <location filename="../lxqtpanel.cpp" line="1385"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Panela ezabatu ondoren, ezin da ekintza desegin.
@@ -437,7 +444,7 @@ Ziur zaude panel hau ezabatu nahi duzula?</translation>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili ordezko konfigurazio fitxategia.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>

@@ -14,12 +14,12 @@
         <translation>Buscar:</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="98"/>
+        <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
         <translation>Añadir widget</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="105"/>
+        <location filename="../config/addplugindialog.ui" line="109"/>
         <source>Close</source>
         <translation>Cerrar</translation>
     </message>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Colocación</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar ubicación</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -77,7 +77,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="88"/>
         <source>Length:</source>
-        <translation>Largo:</translation>
+        <translation>Longitud:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
@@ -296,7 +296,7 @@ queden bajo del panel y tengan un area inaccesible</translation>
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar el estilo</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
@@ -370,52 +370,52 @@ Colorear los iconos según la paleta de colores usada en los widgets</translatio
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Imágenes (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Imágenes (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1177"/>
-        <location filename="../lxqtpanel.cpp" line="1203"/>
+        <location filename="../lxqtpanel.cpp" line="1176"/>
+        <location filename="../lxqtpanel.cpp" line="1202"/>
         <source>Panel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1206"/>
+        <location filename="../lxqtpanel.cpp" line="1205"/>
         <source>Configure Panel</source>
         <translation>Configurar este panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1211"/>
+        <location filename="../lxqtpanel.cpp" line="1210"/>
         <source>Manage Widgets</source>
         <translation>Gestionar los widgets</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1217"/>
+        <location filename="../lxqtpanel.cpp" line="1216"/>
         <source>Add New Panel</source>
         <translation>Añadir otro panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1224"/>
+        <location filename="../lxqtpanel.cpp" line="1223"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Eliminar este panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1229"/>
+        <location filename="../lxqtpanel.cpp" line="1228"/>
         <source>Lock This Panel</source>
         <translation>Bloquear este panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1385"/>
+        <location filename="../lxqtpanel.cpp" line="1384"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Eliminar este panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1386"/>
+        <location filename="../lxqtpanel.cpp" line="1385"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Una vez eliminado el panel no puede deshacerse.

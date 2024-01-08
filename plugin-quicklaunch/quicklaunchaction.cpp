@@ -50,6 +50,12 @@ QuickLaunchAction::QuickLaunchAction(const QString & name,
     m_settingsMap[QStringLiteral("exec")] = exec;
     m_settingsMap[QStringLiteral("icon")] = icon;
 
+    // Since the keys "desktop" and "file" have priority over the above keys
+    // (see LXQtQuickLaunch::LXQtQuickLaunch), we prevent their reading
+    // from another config file by setting them to empty strings here.
+    m_settingsMap[QStringLiteral("desktop")] = QString();
+    m_settingsMap[QStringLiteral("file")] = QString();
+
     if (icon == QLatin1String("") || icon.isNull())
         setIcon(XdgIcon::defaultApplicationIcon());
     else
@@ -85,7 +91,7 @@ QuickLaunchAction::QuickLaunchAction(const XdgDesktopFile * xdg,
         QAction * act = new QAction{xdg->actionIcon(action), xdg->actionName(action), this};
         act->setData(action);
         connect(act, &QAction::triggered, this, [this, act] { execAction(act->data().toString()); });
-        m_addtitionalActions.push_back(act);
+        m_additionalActions.push_back(act);
     }
 }
 
@@ -98,6 +104,8 @@ QuickLaunchAction::QuickLaunchAction(const QString & fileName, QWidget * parent)
     setData(fileName);
 
     m_settingsMap[QStringLiteral("file")] = fileName;
+    // prevent reading of "desktop" from another config file
+    m_settingsMap[QStringLiteral("desktop")] = QString();
 
     QFileInfo fi(fileName);
     if (fi.isDir())
@@ -142,5 +150,36 @@ void QuickLaunchAction::execAction(QString additionalAction)
         case ActionFile:
             QDesktopServices::openUrl(QUrl(exec));
             break;
+    }
+}
+
+void QuickLaunchAction::updateXdgAction()
+{
+    if (m_valid && m_type == ActionXdg)
+    {
+        XdgDesktopFile xdg;
+        if (xdg.load(data().toString()) && xdg.isSuitable())
+        {
+            QString title(xdg.localizedValue(QStringLiteral("Name")).toString());
+            QString gn(xdg.localizedValue(QStringLiteral("GenericName")).toString());
+            if (!gn.isEmpty())
+                title += QLatin1String(" (") + gn + QLatin1String(")");
+            setText(title);
+            setIcon(xdg.icon(XdgIcon::defaultApplicationIcon()));
+
+            qDeleteAll (m_additionalActions);
+            m_additionalActions.clear();
+            for (auto const & action : const_cast<const QStringList &&>(xdg.actions()))
+            {
+                QAction * act = new QAction{xdg.actionIcon(action), xdg.actionName(action), this};
+                act->setData(action);
+                connect(act, &QAction::triggered, this, [this, act] { execAction(act->data().toString()); });
+                m_additionalActions.push_back(act);
+            }
+        }
+        else
+        {
+            qDebug() << "XdgDesktopFile" << data() << "is not valid or applicable";
+        }
     }
 }

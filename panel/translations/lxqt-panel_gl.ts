@@ -14,12 +14,12 @@
         <translation>Buscar:</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="98"/>
+        <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
         <translation>Engadir trebello</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="105"/>
+        <location filename="../config/addplugindialog.ui" line="109"/>
         <source>Close</source>
         <translation>Pechar</translation>
     </message>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Colocación</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar a colocación</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -82,18 +82,18 @@
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished"></translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="109"/>
         <location filename="../config/configplacement.ui" line="153"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
@@ -159,7 +159,7 @@
         <location filename="../config/configplacement.ui" line="288"/>
         <location filename="../config/configplacement.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="301"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar só ao solapar unha xanela</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar o estilo</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
@@ -369,52 +369,52 @@ Colorar as iconas segundo o estilo dos trebellos (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Imaxes (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Imaxes (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1177"/>
-        <location filename="../lxqtpanel.cpp" line="1203"/>
+        <location filename="../lxqtpanel.cpp" line="1176"/>
+        <location filename="../lxqtpanel.cpp" line="1202"/>
         <source>Panel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1206"/>
+        <location filename="../lxqtpanel.cpp" line="1205"/>
         <source>Configure Panel</source>
         <translation>Configurar o panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1211"/>
+        <location filename="../lxqtpanel.cpp" line="1210"/>
         <source>Manage Widgets</source>
         <translation>Administrar os trebellos</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1217"/>
+        <location filename="../lxqtpanel.cpp" line="1216"/>
         <source>Add New Panel</source>
         <translation>Engadir un panel novo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1224"/>
+        <location filename="../lxqtpanel.cpp" line="1223"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Retirar o panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1229"/>
+        <location filename="../lxqtpanel.cpp" line="1228"/>
         <source>Lock This Panel</source>
         <translation>Bloquear este panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1385"/>
+        <location filename="../lxqtpanel.cpp" line="1384"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Retirar o panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1386"/>
+        <location filename="../lxqtpanel.cpp" line="1385"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>A retirada dun panel non pode desfacerse.

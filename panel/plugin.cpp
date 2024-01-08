@@ -31,7 +31,7 @@
 #include "pluginsettings_p.h"
 #include "lxqtpanel.h"
 
-#include <KWindowSystem>
+#include <KWindowSystem/KX11Extras>
 
 #include <QDebug>
 #include <QProcessEnvironment>
@@ -150,7 +150,7 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
 
     QString s = mSettings->value(QStringLiteral("alignment")).toString();
 
-    // Retrun default value
+    // Return default value
     if (s.isEmpty())
     {
         mAlignment = (mPlugin->flags().testFlag(ILXQtPanelPlugin::PreferRightAlignment)) ?
@@ -390,7 +390,7 @@ void Plugin::mousePressEvent(QMouseEvent *event)
         mPlugin->activated(ILXQtPanelPlugin::Trigger);
         break;
 
-    case Qt::MidButton:
+    case Qt::MiddleButton:
         mPlugin->activated(ILXQtPanelPlugin::MiddleClick);
         break;
 
@@ -523,8 +523,8 @@ void Plugin::showConfigureDialog()
     mConfigDialog->activateWindow();
 
     WId wid = mConfigDialog->windowHandle()->winId();
-    KWindowSystem::activateWindow(wid);
-    KWindowSystem::setOnDesktop(wid, KWindowSystem::currentDesktop());
+    KX11Extras::activateWindow(wid);
+    KX11Extras::setOnDesktop(wid, KX11Extras::currentDesktop());
 }
 
 

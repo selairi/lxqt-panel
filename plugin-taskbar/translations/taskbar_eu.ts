@@ -6,113 +6,113 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="681"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktibatu %1 zeregina</translation>
     </message>
 </context>
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="673"/>
+        <location filename="../lxqttaskbutton.cpp" line="674"/>
         <source>Application</source>
         <translation>Aplikazioa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="707"/>
+        <location filename="../lxqttaskbutton.cpp" line="708"/>
         <source>To &amp;Desktop</source>
         <translation>&amp;Mahaigainera</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="709"/>
+        <location filename="../lxqttaskbutton.cpp" line="710"/>
         <source>&amp;All Desktops</source>
         <translation>Mahaigain &amp;guztiak</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="719"/>
+        <location filename="../lxqttaskbutton.cpp" line="720"/>
         <source>Desktop &amp;%1</source>
         <translation>&amp;%1 mahaigaina</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="729"/>
+        <location filename="../lxqttaskbutton.cpp" line="730"/>
         <source>&amp;To Current Desktop</source>
         <translation>&amp;Uneko mahaigainera</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="738"/>
+        <location filename="../lxqttaskbutton.cpp" line="739"/>
         <source>Move To N&amp;ext Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="741"/>
+        <location filename="../lxqttaskbutton.cpp" line="742"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="745"/>
+        <location filename="../lxqttaskbutton.cpp" line="746"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mugitu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="748"/>
+        <location filename="../lxqttaskbutton.cpp" line="749"/>
         <source>Resi&amp;ze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="755"/>
+        <location filename="../lxqttaskbutton.cpp" line="756"/>
         <source>Ma&amp;ximize</source>
         <translation>Maximizatu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="762"/>
+        <location filename="../lxqttaskbutton.cpp" line="763"/>
         <source>Maximize vertically</source>
         <translation>Maximizatu bertikalki</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="767"/>
+        <location filename="../lxqttaskbutton.cpp" line="768"/>
         <source>Maximize horizontally</source>
         <translation>Maximizatu horizontalki</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="773"/>
+        <location filename="../lxqttaskbutton.cpp" line="774"/>
         <source>&amp;Restore</source>
         <translation>&amp;Leheneratu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="777"/>
+        <location filename="../lxqttaskbutton.cpp" line="778"/>
         <source>Mi&amp;nimize</source>
         <translation>Minimizatu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="783"/>
+        <location filename="../lxqttaskbutton.cpp" line="784"/>
         <source>Roll down</source>
         <translation>Zabaldu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="789"/>
+        <location filename="../lxqttaskbutton.cpp" line="790"/>
         <source>Roll up</source>
         <translation>Bildu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="797"/>
+        <location filename="../lxqttaskbutton.cpp" line="798"/>
         <source>&amp;Layer</source>
         <translation>&amp;Geruza</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="799"/>
+        <location filename="../lxqttaskbutton.cpp" line="800"/>
         <source>Always on &amp;top</source>
         <translation>Beti &amp;goian</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="805"/>
+        <location filename="../lxqttaskbutton.cpp" line="806"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normala</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="811"/>
+        <location filename="../lxqttaskbutton.cpp" line="812"/>
         <source>Always on &amp;bottom</source>
         <translation>Beti &amp;behean</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="819"/>
+        <location filename="../lxqttaskbutton.cpp" line="820"/>
         <source>&amp;Close</source>
         <translation>&amp;Itxi</translation>
     </message>
@@ -120,14 +120,14 @@
 <context>
     <name>LXQtTaskGroup</name>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="81"/>
+        <location filename="../lxqttaskgroup.cpp" line="82"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Taldea</translation>
     </message>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="83"/>
+        <location filename="../lxqttaskgroup.cpp" line="84"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Itxi taldea</translation>
     </message>
 </context>
 <context>
@@ -135,32 +135,32 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ataza-kudeatzailearen ezarpenak</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Orokorra</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi mahaigainetik leihoak soilik</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi &amp;panelaren pantailako leihoak soilik</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi txikitutako leihoak soilik</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Altxatu minimizatutako leihoak uneko mahaigainean</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
@@ -175,24 +175,24 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi pop-up sagua pasatzean</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Itxura</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="188"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Botoiaren gehienezko zabalera</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="125"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="201"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="227"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
@@ -207,12 +207,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation type="unfinished"></translation>
+        <translation>Jarri klase bereko botoiak bata bestearen ondoan</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>Botoiaren gehienezko altuera</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="247"/>
@@ -252,7 +252,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Desgaituta</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
@@ -277,7 +277,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Oraingoa</translation>
     </message>
 </context>
 </TS>

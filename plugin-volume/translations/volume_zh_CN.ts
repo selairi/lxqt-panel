@@ -24,12 +24,12 @@
         <translation>音量控制：无法注册下列快捷键：%1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="291"/>
+        <location filename="../lxqtvolume.cpp" line="290"/>
         <source>Volume: %1%%2</source>
         <translation>音量: %1%%2</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="291"/>
+        <location filename="../lxqtvolume.cpp" line="290"/>
         <source>(muted)</source>
         <translation>（静音）</translation>
     </message>
@@ -73,31 +73,26 @@
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
-        <source>Show on mouse click</source>
-        <translation>单击时显示</translation>
-    </message>
-    <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
         <translation>允许声音超过 100%（0分贝）</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
         <translation>总是在音量改变时提示</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
         <translation>使用键盘更改音量时显示通知</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
         <translation>声音调整幅度</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="125"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
         <translation>外部混音器</translation>
     </message>
@@ -105,12 +100,12 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="55"/>
+        <location filename="../volumepopup.cpp" line="59"/>
         <source>Launch mixer</source>
         <translation>运行混音器</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="56"/>
+        <location filename="../volumepopup.cpp" line="60"/>
         <source>Mi&amp;xer</source>
         <translation>混音器(&amp;X)</translation>
     </message>

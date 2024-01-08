@@ -14,12 +14,12 @@
         <translation>Szukaj:</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="98"/>
+        <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
         <translation>Dodaj widżet</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="105"/>
+        <location filename="../config/addplugindialog.ui" line="109"/>
         <source>Close</source>
         <translation>Zamknij</translation>
     </message>
@@ -67,7 +67,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Ujemna ilość pikseli powoduje zmniejszenie panelu .&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Np. &quot;Długość&quot; ustawiona na -100px, rozmiar ekranu 1000px, długość panelu wyniesie 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Ujemna ilość pikseli powoduje zmniejszenie panelu .&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Np. gdy „Długość” ustawiona na -100px a rozmiar ekranu wynosi 1000px, długość panelu wyniesie 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
@@ -369,52 +369,52 @@ Koloruj ikony na podstawie stylu (palety)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Obrazki (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Obrazki (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1177"/>
-        <location filename="../lxqtpanel.cpp" line="1203"/>
+        <location filename="../lxqtpanel.cpp" line="1176"/>
+        <location filename="../lxqtpanel.cpp" line="1202"/>
         <source>Panel</source>
         <translation>Panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1206"/>
+        <location filename="../lxqtpanel.cpp" line="1205"/>
         <source>Configure Panel</source>
         <translation>Konfiguruj Panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1211"/>
+        <location filename="../lxqtpanel.cpp" line="1210"/>
         <source>Manage Widgets</source>
         <translation>Zarządzaj widżetami</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1217"/>
+        <location filename="../lxqtpanel.cpp" line="1216"/>
         <source>Add New Panel</source>
         <translation>Dodaj nowy panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1224"/>
+        <location filename="../lxqtpanel.cpp" line="1223"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Usuń panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1229"/>
+        <location filename="../lxqtpanel.cpp" line="1228"/>
         <source>Lock This Panel</source>
         <translation>Zablokuj ten panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1385"/>
+        <location filename="../lxqtpanel.cpp" line="1384"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Usuń panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1386"/>
+        <location filename="../lxqtpanel.cpp" line="1385"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Usunięcie panelu nie może zostać cofnięte.
@@ -426,17 +426,17 @@ Czy chcesz usunąć ten panel?</translation>
     <message>
         <location filename="../plugin.cpp" line="438"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>Konfiguruj &quot;%1&quot;</translation>
+        <translation>Konfiguruj „%1”</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="443"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>Przesuń &quot;%1&quot;</translation>
+        <translation>Przesuń „%1”</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="451"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>Usuń &quot;%1&quot;</translation>
+        <translation>Usuń „%1”</translation>
     </message>
 </context>
 <context>

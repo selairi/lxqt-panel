@@ -46,6 +46,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     connect(ui->fontButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::fontButtonClicked);
     connect(ui->commandPlainTextEdit, &QPlainTextEdit::textChanged, this, &LXQtCustomCommandConfiguration::commandPlainTextEditChanged);
     connect(ui->runWithBashCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged);
+    connect(ui->outputImageCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::outputImageCheckBoxChanged);
     connect(ui->repeatCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::repeatCheckBoxChanged);
     connect(ui->repeatTimerSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &LXQtCustomCommandConfiguration::repeatTimerSpinBoxChanged);
     connect(ui->iconLineEdit, &QLineEdit::textChanged, this, &LXQtCustomCommandConfiguration::iconLineEditChanged);
@@ -70,6 +71,7 @@ void LXQtCustomCommandConfiguration::loadSettings()
     ui->fontButton->setText(settings().value(QStringLiteral("font"), font().toString()).toString());
     ui->commandPlainTextEdit->setPlainText(settings().value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString());
     ui->runWithBashCheckBox->setChecked(settings().value(QStringLiteral("runWithBash"), true).toBool());
+    ui->outputImageCheckBox->setChecked(settings().value(QStringLiteral("outputImage"), false).toBool());
     ui->repeatCheckBox->setChecked(settings().value(QStringLiteral("repeat"), true).toBool());
     ui->repeatTimerSpinBox->setEnabled(ui->repeatCheckBox->isChecked());
     ui->repeatTimerSpinBox->setValue(settings().value(QStringLiteral("repeatTimer"), 5).toInt());
@@ -106,13 +108,19 @@ void LXQtCustomCommandConfiguration::fontButtonClicked()
 void LXQtCustomCommandConfiguration::commandPlainTextEditChanged()
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("command"), ui->commandPlainTextEdit->toPlainText());
+        settings().setValue(QStringLiteral("command"), ui->commandPlainTextEdit->toPlainText().trimmed());
 }
 
 void LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged(bool runWithBash)
 {
     if (!mLockSettingChanges)
         settings().setValue(QStringLiteral("runWithBash"), runWithBash);
+}
+
+void LXQtCustomCommandConfiguration::outputImageCheckBoxChanged(bool outputImage)
+{
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("outputImage"), outputImage);
 }
 
 void LXQtCustomCommandConfiguration::repeatCheckBoxChanged(bool repeat)
@@ -155,17 +163,17 @@ void LXQtCustomCommandConfiguration::maxWidthSpinBoxChanged(int maxWidth)
 void LXQtCustomCommandConfiguration::clickLineEditChanged(QString click)
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("click"), click);
+        settings().setValue(QStringLiteral("click"), click.trimmed());
 }
 
 void LXQtCustomCommandConfiguration::wheelUpLineEditChanged(QString wheelUp)
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("wheelUp"), wheelUp);
+        settings().setValue(QStringLiteral("wheelUp"), wheelUp.trimmed());
 }
 
 void LXQtCustomCommandConfiguration::wheelDownLineEditChanged(QString wheelDown)
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("wheelDown"), wheelDown);
+        settings().setValue(QStringLiteral("wheelDown"), wheelDown.trimmed());
 }

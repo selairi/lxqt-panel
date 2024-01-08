@@ -9,7 +9,7 @@ project(lxqt-panel)
 option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
 option(WITH_SCREENSAVER_FALLBACK "Include support for converting the deprecated 'screensaver' plugin to 'quicklaunch'. This requires the lxqt-leave (lxqt-session) to be installed in runtime." ON)
 # plugin-mainmenu
-option(USE_MENU_CACHE "Use menu-cached (no noticable penalty even on a 2004 single core pentium if not used)" OFF)
+option(USE_MENU_CACHE "Use menu-cached (no noticeable penalty even on a 2004 single core pentium if not used)" OFF)
 
 
 # additional cmake files
@@ -30,9 +30,9 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 set(REQUIRED_QT_VERSION "5.15.0")
-set(KF5_MINIMUM_VERSION "5.36.0")
-set(LXQT_GLOBALKEYS_MINIMUM_VERSION "1.1.0")
-set(LXQT_MINIMUM_VERSION "1.1.0")
+set(KF5_MINIMUM_VERSION "5.101.0")
+set(LXQT_GLOBALKEYS_MINIMUM_VERSION "1.4.0")
+set(LXQT_MINIMUM_VERSION "1.4.0")
 
 find_package(Qt5DBus ${REQUIRED_QT_VERSION} REQUIRED)
 find_package(Qt5LinguistTools ${REQUIRED_QT_VERSION} REQUIRED)
@@ -42,6 +42,7 @@ find_package(Qt5Xml ${REQUIRED_QT_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt ${LXQT_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt-globalkeys-ui ${LXQT_GLOBALKEYS_MINIMUM_VERSION} REQUIRED)
+find_package(lxqt-menu-data ${LXQT_MINIMUM_VERSION} REQUIRED)
 
 # Patch Version
 set(LXQT_PANEL_PATCH_VERSION 0)
@@ -109,7 +110,7 @@ if(DIRECTORYMENU_PLUGIN)
     add_subdirectory(plugin-directorymenu)
 endif()
 
-setByDefault(DOM_PLUGIN No)
+setByDefault(DOM_PLUGIN Yes)
 if(DOM_PLUGIN)
     list(APPEND ENABLED_PLUGINS "DOM")
     add_subdirectory(plugin-dom)
@@ -169,6 +170,13 @@ if(SHOWDESKTOP_PLUGIN)
     list(APPEND ENABLED_PLUGINS "Show Desktop")
     add_subdirectory(plugin-showdesktop)
 endif()
+
+setByDefault(QEYES_PLUGIN Yes)
+if(QEYES_PLUGIN)
+    list(APPEND ENABLED_PLUGINS "QEyes")
+    add_subdirectory(plugin-qeyes)
+endif()
+
 
 setByDefault(NETWORKMONITOR_PLUGIN Yes)
 if(NETWORKMONITOR_PLUGIN)
@@ -272,4 +280,3 @@ add_subdirectory(panel)
 
 # merged from lxqt-common
 add_subdirectory(autostart)
-add_subdirectory(menu)
