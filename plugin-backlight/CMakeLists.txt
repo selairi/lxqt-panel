@@ -12,7 +12,6 @@ set(SOURCES
 
 set(LIBRARIES
     ${LIBRARIES}
-    lxqt-globalkeys
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

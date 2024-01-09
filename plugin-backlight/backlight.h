@@ -30,7 +30,6 @@
 
 #include <QToolButton>
 #include "../panel/ilxqtpanelplugin.h"
-#include <LXQt/lxqtbacklight.h>
 #include "sliderdialog.h"
 
 namespace LXQt {
@@ -54,23 +53,13 @@ public:
     virtual QString themeId() const { return QStringLiteral("Backlight"); }
     virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment ; }
 
-protected slots:
+protected Q_SLOTS:
     void showSlider(bool);
     void deleteSlider();
-    void handleShortcutBacklightUp();
-    void handleShortcutBacklightDown();
-    void shortcutRegistered();
 
 private:
-    int getBacklightStep();
-    void setBacklightStep(int value);
-
     QToolButton *m_backlightButton;
-    LXQt::Backlight *m_backlight;
     SliderDialog *m_backlightSlider;
-    GlobalKeyShortcut::Action *m_keyBacklightUp;
-    GlobalKeyShortcut::Action *m_keyBacklightDown;
-    LXQt::Notification *m_notification;
 };
 
 
