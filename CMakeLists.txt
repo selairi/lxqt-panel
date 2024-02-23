@@ -268,6 +268,13 @@ if(BACKLIGHT_PLUGIN)
     add_subdirectory(plugin-backlight)
 endif()
 
+setByDefault(WAYLANDTASKBAR_PLUGIN Yes)
+if(WAYLANDTASKBAR_PLUGIN)
+  list(APPEND ENABLED_PLUGINS "WaylandTaskBar")
+  add_subdirectory(plugin-waylandtaskbar)
+endif()
+
+
 #########################################################################
 
 message(STATUS  "**************** The following plugins will be built ****************")
